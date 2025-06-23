@@ -1,0 +1,30 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+/build
+.next
+.out
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development
+.env.production
+.env.test
+
+# system files
+Thumbs.db
+*.log
+
+# IDEs
+.vscode
+.idea
+
+# Cache
+.cache
+.npm
+.pnpm-store
+yarn.lock

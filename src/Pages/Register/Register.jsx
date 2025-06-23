@@ -29,7 +29,9 @@ export default function AuthPage() {
       alert("✅ Registration successful");
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      navigate('/')
+
+      window.dispatchEvent(new Event("userChanged"));
+      navigate('/discover')
     } catch (err) {
       console.error(err);
       alert("❌ Registration failed");
@@ -51,7 +53,7 @@ export default function AuthPage() {
       
       window.dispatchEvent(new Event("userChanged"));
       alert("✅ Login successful");
-      await navigate("/"); // Go to homepage
+      await navigate("/discover"); // Go to homepage
     } catch (err) {
       console.error(err);
       alert("❌ Login failed");

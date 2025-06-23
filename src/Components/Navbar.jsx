@@ -7,21 +7,21 @@ export default function Navbar() {
   const [user, setUser] = useState(null)
 
   useEffect(() => {
-  const savedUser = JSON.parse(localStorage.getItem('user'));
-  setUser(savedUser);
+    const savedUser = JSON.parse(localStorage.getItem('user'));
+    setUser(savedUser);
 
-  // Listen for custom event on login
-  const handleUserChange = () => {
-    const updatedUser = JSON.parse(localStorage.getItem('user'));
-    setUser(updatedUser);
-  };
+    // Listen for custom event on login
+    const handleUserChange = () => {
+      const updatedUser = JSON.parse(localStorage.getItem('user'));
+      setUser(updatedUser);
+    };
 
-  window.addEventListener("userChanged", handleUserChange);
+    window.addEventListener("userChanged", handleUserChange);
 
-  return () => {
-    window.removeEventListener("userChanged", handleUserChange);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("userChanged", handleUserChange);
+    };
+  }, []);
 
 
   return (
@@ -62,7 +62,15 @@ export default function Navbar() {
           <div className="md:hidden w-[100vw] pb-4 space-y-2 ml-5">
             <Link to="/" className="block text-gray-700 hover:text-green-600">Home</Link>
             <Link to="/discover" className="block text-gray-700 hover:text-green-600">Discover</Link>
-            <Link to="/upload" className="block text-gray-700 hover:text-green-600">Upload</Link>
+            {
+              user?.role == 'org' ?
+                <Link to="/acceptedRequests" className="text-gray-700 hover:text-green-600 transition"> Requests
+                </Link>
+                :
+                <Link to="/upload" className="text-gray-700 hover:text-green-600 transition">
+                  Upload
+                </Link>
+            }
             <Link to="/register" className="block text-gray-700 hover:text-green-600">Profile</Link>
           </div>
         )

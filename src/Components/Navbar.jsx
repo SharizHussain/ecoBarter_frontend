@@ -64,10 +64,10 @@ export default function Navbar() {
             <Link to="/discover" className="block text-gray-700 hover:text-green-600">Discover</Link>
             {
               user?.role == 'org' ?
-                <Link to="/acceptedRequests" className="text-gray-700 hover:text-green-600 transition"> Requests
+                <Link to="/acceptedRequests" className="block text-gray-700 hover:text-green-600"> Requests
                 </Link>
                 :
-                <Link to="/upload" className="text-gray-700 hover:text-green-600 transition">
+                <Link to="/upload" className="block text-gray-700 hover:text-green-600">
                   Upload
                 </Link>
             }

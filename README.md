@@ -40,3 +40,6 @@ git clone https://github.com/SharizHussain/ecoBarter_frontend.git
 cd ecoBarter_frontend
 npm install
 npm run dev
+```
+- VITE_API_BASE_URL=https://ecobarter-backend.onrender.com
+

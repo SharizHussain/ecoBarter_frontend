@@ -92,13 +92,14 @@ export default function Discover() {
 
                 <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                     {posts.map((data) => {
-                        const isAccepted = acceptedIds.includes(data._id);
+                        // const isAccepted = acceptedIds.includes(data._id);
+                        const isAccepted = data.status == "pending" ? false : true;
                         return (
                             <div key={data._id} className="h-[65vh] bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition-all">
                                <img src={`${data.imageUrl}`} alt="Garbage Location" className='w-[100%] h-[66%] object-cover'/>
                                 <div className="p-5">
                                     <h3 className="text-xl font-semibold text-green-700">From: {data.postedBy?.name}</h3>
-                                    <p className="text-gray-600">{data.location.lat.toFixed(3)}</p>
+                                    <p className="text-gray-600">lat:{data.location.lat.toFixed(3)} &nbsp; lng:{data.location.lng.toFixed(3)}</p>
                                     {isOrg ? (
                                         <button
                                             disabled={isAccepted}
@@ -110,7 +111,7 @@ export default function Discover() {
                                         </button>
                                     ) : (
                                         <p className="mt-3 text-sm font-semibold text-blue-700">
-                                            Status: <span className="capitalize">{isAccepted ? "accepted" : "pending"}</span>
+                                            Status: <span className="capitalize">{data.status} {!isOrg && data.status !== "pending" ? "by" : ""} {data.pickedBy?.name}</span>
                                         </p>
                                     )}
 

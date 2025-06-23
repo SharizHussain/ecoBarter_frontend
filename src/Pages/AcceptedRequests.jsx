@@ -27,7 +27,7 @@ export default function AcceptedPosts() {
               <p className="text-sm text-gray-500">Created by: {post.postedBy?.name}</p>
             </div>
           ))}
-        </div>
+        </div> 
       )}
     </div>
   );

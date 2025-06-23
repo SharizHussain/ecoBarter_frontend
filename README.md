@@ -36,7 +36,7 @@ This is the **frontend** built with **React**, styled using **Tailwind CSS**, an
 ## 🚀 Running Locally
 
 ```bash
-git clone https://github.com/SharizHussain/ecobarter-frontend.git
-cd ecobarter-frontend
+git clone https://github.com/SharizHussain/ecoBarter_frontend.git
+cd ecoBarter_frontend
 npm install
 npm run dev

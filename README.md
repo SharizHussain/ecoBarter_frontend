@@ -1,6 +1,6 @@
 # React + Vite
 
-# EcoBarter - Frontend
+# EcoBarter - Frontend 
 
 EcoBarter is a full-stack web application built with the MERN stack. It empowers users to report waste spots in real-time and allows verified organizations to accept and manage cleanup requests.
 

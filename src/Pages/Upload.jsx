@@ -93,7 +93,7 @@ export default function Upload() {
       });
 
       alert("✅ Post uploaded successfully!");
-      navigate("/");
+      navigate("/discover");
     } catch (err) {
       console.error("Upload error:", err);
       alert("❌ Upload failed. Try again.");

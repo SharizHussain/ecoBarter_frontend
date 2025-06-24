@@ -65,3 +65,7 @@ button:hover {
     background-color: #f9f9f9;
   }
 }
+
+
+/* ok good now we have to add reverse geocoding which location (lat, lng) is stored in our database.
+I want when user or organisation anyone will click on any post then a page open where the real location of that lat, lng will appear in map and even on post cards we dont see lat or lng we will see the address in text form */

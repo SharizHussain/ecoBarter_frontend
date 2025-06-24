@@ -1,17 +1,33 @@
 import React, { useEffect, useState } from 'react';
 import api from '../api/api';
+import Loader from '../Components/Loader';
 
 export default function AcceptedPosts() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+  const fetchAcceptedPosts = async () => {
     const user = JSON.parse(localStorage.getItem("user"));
     if (user?.role === "org") {
-      api.get(`/posts/org/pickups/${user._id}`)
-        .then(res => setPosts(res.data))
-        .catch(err => console.error("Failed to load posts", err));
+      try {
+        const res = await api.get(`/posts/org/pickups/${user._id}`);
+        setPosts(res.data);
+      } catch (err) {
+        console.error("Failed to load posts", err);
+      } finally {
+        setLoading(false);
+      }
+    } else {
+      setLoading(false); // in case user is not org, stop loading
     }
-  }, []);
+  };
+
+  fetchAcceptedPosts();
+}, []);
+
+
+  if (loading) return <Loader />;
 
   return (
     <div className="pt-24 px-4 md:px-16 min-h-screen bg-green-50">
@@ -27,7 +43,7 @@ export default function AcceptedPosts() {
               <p className="text-sm text-gray-500">Created by: {post.postedBy?.name}</p>
             </div>
           ))}
-        </div> 
+        </div>
       )}
     </div>
   );

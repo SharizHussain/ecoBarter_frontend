@@ -153,7 +153,7 @@ export default function Discover() {
                                         href={`https://www.google.com/maps/search/?api=1&query=${data.location.lat},${data.location.lng}`}
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        to={`/mapview/${data._id}`}
+                                        // to={`/mapview/${data._id}`}
                                         className="text-blue-600 underline"
                                     >
                                         View on Map

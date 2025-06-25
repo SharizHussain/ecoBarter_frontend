@@ -41,9 +41,3 @@ cd ecoBarter_frontend
 npm install
 npm run dev
 ```
-- VITE_API_BASE_URL=https://ecobarter-backend.onrender.com
-
-# IF you wanna login as organization -
-- email: greensweep@org.com
-- password: password123
-
